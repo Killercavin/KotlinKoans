@@ -13,13 +13,15 @@ fun getPattern(): String = TODO()
  */
 
 // solution
-val month = "(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)"
+const val month = "(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)"
 
-fun getPattern(): String =
-    """
-        \d{2}.\d{2}.\d{4}
-    """ // having problem with this Regex so the test is failing...
+fun getPattern(): String = """
+    \d{2} $month \d{4}
+""".trimIndent()
+
 
 fun main() {
     println(getPattern())
+    val regex = Regex(getPattern())
+    println(regex.matches("13 JUN 1992"))
 }
